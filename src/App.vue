@@ -1,0 +1,60 @@
+<template>
+  <div class="nav">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link> |
+    <router-link to="/jobs">jobs</router-link>
+  </div>
+
+  <button @click="redirect">Redirect</button>
+  <button @click="back">Go back</button>
+  <button @click="forward">Go forward</button>
+  
+  <router-view />
+</template>
+
+<script>
+export default{
+  methods:{
+    redirect(){
+      this.$router.push({name: 'home'})
+    },
+    back(){
+      this.$router.go(-1)
+    },
+    forward(){
+      this.$router.go(1)
+    }
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.nav {
+  padding: 30px;
+  word-spacing: 5px;
+}
+
+.nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.nav a.router-link-exact-active {
+  color: #42b983;
+  margin-left: 10px;
+}
+button{
+  margin: 0 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+}
+</style>
